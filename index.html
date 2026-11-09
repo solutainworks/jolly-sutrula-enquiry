@@ -567,14 +567,14 @@ input,select,textarea,button{max-width:100%;font:inherit}
 
   <div class="section-title">01 · About you</div>
   <div class="grid2">
-    <div class="field"><label for="fullName">Full name <span class="req">*</span></label><input class="control" id="fullName" maxlength="80" autocomplete="name" autocomplete="name" placeholder="Your name"><p class="error" id="fullNameError" aria-live="polite"></p></div>
-    <div class="field"><label for="phone">WhatsApp number <span class="req">*</span></label><input class="control" id="phone" maxlength="10" pattern="[6-9][0-9]{9}" autocomplete="tel" type="tel" inputmode="tel" autocomplete="tel" placeholder="10-digit mobile number"><p class="error" id="phoneError" aria-live="polite"></p></div>
+    <div class="field"><label for="fullName">Full name <span class="req">*</span></label><input class="control" id="fullName" maxlength="80" autocomplete="name" aria-describedby="fullNameError" placeholder="Your name"><p class="error" id="fullNameError" aria-live="polite"></p></div>
+    <div class="field"><label for="phone">WhatsApp number <span class="req">*</span></label><input class="control" id="phone" maxlength="10" pattern="[6-9][0-9]{9}" type="tel" inputmode="tel" autocomplete="tel" aria-describedby="phoneError" placeholder="10-digit mobile number"><p class="error" id="phoneError" aria-live="polite"></p></div>
   </div>
-  <div class="field"><label for="email">Email address <span class="hint">(optional)</span></label><input class="control" id="email" maxlength="254" autocomplete="email" type="email" autocomplete="email" placeholder="you@example.com"><p class="error" id="emailError" aria-live="polite"></p></div>
+  <div class="field"><label for="email">Email address <span class="hint">(optional)</span></label><input class="control" id="email" maxlength="254" type="email" autocomplete="email" aria-describedby="emailError" placeholder="you@example.com"><p class="error" id="emailError" aria-live="polite"></p></div>
 
   <div class="section-title">02 · Destination & travel dates</div>
   <div class="field"><span class="legend">Choose your destination <span class="req">*</span> <span class="hint">Select a state, then choose places you’d like to visit.</span></span>
-    <div class="chips" id="stateChoices">
+    <div class="chips" id="stateChoices" role="group" aria-label="Choose a destination state or ask for advice">
       <button type="button" class="chip" data-state="Kerala" aria-pressed="false">Kerala</button>
       <button type="button" class="chip" data-state="Tamil Nadu" aria-pressed="false">Tamil Nadu</button>
       <button type="button" class="chip" data-state="Karnataka" aria-pressed="false">Karnataka</button>
@@ -649,12 +649,12 @@ input,select,textarea,button{max-width:100%;font:inherit}
     <div class="field"><label for="pickup">Pickup location <span class="optional">(Optional)</span></label><input class="control" id="pickup" maxlength="120" placeholder="City, airport, railway station…"><p class="error" id="pickupError" aria-live="polite"></p></div>
     <div class="field"><label for="drop">Drop-off location <span class="optional">(Optional)</span></label><input class="control" id="drop" maxlength="120" placeholder="City or preferred endpoint"><p class="error" id="dropError" aria-live="polite"></p></div>
   </div>
-  <div class="field"><span class="legend">Estimated budget per person <span class="req">*</span></span><p class="hint" style="margin:0 0 9px">Approximate budget for the trip, per person.</p><div class="chips" id="budgetChoices">
+  <div class="field"><span class="legend">Estimated budget per person <span class="req">*</span></span><p class="hint" style="margin:0 0 9px">Approximate budget for the trip, per person.</p><div class="chips" id="budgetChoices" role="group" aria-label="Estimated budget per person">
     <button type="button" class="chip" aria-pressed="false">Below ₹5,000</button><button type="button" class="chip" aria-pressed="false">₹5,000–₹10,000</button><button type="button" class="chip" aria-pressed="false">₹10,000–₹15,000</button><button type="button" class="chip" aria-pressed="false">₹15,000–₹25,000</button><button type="button" class="chip" aria-pressed="false">₹25,000–₹40,000</button><button type="button" class="chip" aria-pressed="false">₹40,000+</button><button type="button" class="chip" aria-pressed="false">Need your recommendation</button>
   </div><p class="error" id="budgetError" aria-live="polite"></p></div>
 
   <div class="section-title">04 · Stay preferences & message</div>
-  <div class="field"><span class="legend">Preferred accommodation <span class="hint">(optional · select any)</span></span><div class="chips" id="stayChoices">
+  <div class="field"><span class="legend">Preferred accommodation <span class="hint">(optional · select any)</span></span><div class="chips" id="stayChoices" role="group" aria-label="Preferred accommodation">
     <button type="button" class="chip" aria-pressed="false">Homestay</button><button type="button" class="chip" aria-pressed="false">Comfortable hotels</button><button type="button" class="chip" aria-pressed="false">Resorts</button><button type="button" class="chip" aria-pressed="false">Houseboats</button><button type="button" class="chip" aria-pressed="false">Premium stays</button><button type="button" class="chip" aria-pressed="false">Recommend for me</button>
   </div></div>
   <div class="field"><label for="notes">Custom message <span class="hint">(optional)</span></label><textarea class="control" id="notes" maxlength="600" placeholder="Share any special occasion, places you have in mind, preferences or anything else we should know…"></textarea></div>
@@ -1357,7 +1357,7 @@ img, svg { max-width: 100%; }
   &lt;/footer&gt;
 &lt;/body&gt;
 &lt;/html&gt;
-&quot; loading=&quot;eager"></iframe>
+" loading="eager"></iframe>
 </section>
 
 
