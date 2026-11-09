@@ -4,7 +4,7 @@
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#075B55">
 <meta name="referrer" content="no-referrer">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'none'; object-src 'none'; script-src 'sha256-OOjBRKsUG/Rkv56PHgkpxE9hj+WOKXDMbwWAynUf2C0='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net; font-src 'self' data: https://fonts.gstatic.com; img-src 'self' data: blob:; frame-src 'self'; connect-src 'self'; form-action 'none'; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'none'; object-src 'none'; script-src 'sha256-OOjBRKsUG/Rkv56PHgkpxE9hj+WOKXDMbwWAynUf2C0=' 'sha256-CC60gFZI3ObG781VHDOv2xsB3c8j0MxsWZ+EekysBBY='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net; font-src 'self' data: https://fonts.gstatic.com; img-src 'self' data: blob:; frame-src 'self'; connect-src 'self'; form-action 'none'; upgrade-insecure-requests">
 
 <meta name="description" content="Plan your South India journey with Jolly Sutrula. Personalised travel advice and itinerary planning.">
 <title>Plan Your Journey | Jolly Sutrula</title>
@@ -1118,5 +1118,64 @@ $("sendBtn").addEventListener("click",()=>{
  document.body.classList.add("submitted");$("successPage").hidden=false;window.scrollTo({top:0,behavior:"auto"});
 });
 form.addEventListener("submit",e=>e.preventDefault());
+</script>
+<script id="instagram-in-app-browser-helper">
+
+(function () {
+  var ua = navigator.userAgent || "";
+  var isInstagram = /Instagram/i.test(ua);
+  if (!isInstagram) return;
+
+  function showFallbackBanner() {
+    if (document.getElementById("instagram-browser-banner")) return;
+
+    var banner = document.createElement("div");
+    banner.id = "instagram-browser-banner";
+    banner.setAttribute("role", "status");
+    banner.setAttribute("aria-live", "polite");
+    banner.innerHTML =
+      '<span>For the best experience, tap ⋯ (top right) → Open in browser</span>' +
+      '<button type="button" aria-label="Close banner" title="Close">✕</button>';
+
+    var style = document.createElement("style");
+    style.textContent =
+      "#instagram-browser-banner{position:fixed;top:0;left:0;right:0;z-index:2147483647;" +
+      "display:flex;align-items:center;justify-content:space-between;gap:12px;" +
+      "padding:12px 14px;padding-top:calc(12px + env(safe-area-inset-top));" +
+      "background:#075B55;color:#FAF5E9;font:600 13px/1.4 Arial,sans-serif;" +
+      "box-shadow:0 3px 14px rgba(0,0,0,.22);}" +
+      "#instagram-browser-banner button{flex:none;border:0;background:transparent;color:#FAF5E9;" +
+      "font:700 18px/1 Arial,sans-serif;padding:4px 6px;cursor:pointer;}" +
+      "body{scroll-padding-top:64px;}";
+    document.head.appendChild(style);
+    document.body.appendChild(banner);
+    banner.querySelector("button").addEventListener("click", function () {
+      banner.remove();
+      style.remove();
+    });
+  }
+
+  var isAndroid = /Android/i.test(ua);
+  if (isAndroid) {
+    var currentUrl = window.location.href;
+    var intentUrl = "intent://" + currentUrl.replace(/^https?:\/\//i, "") +
+      "#Intent;scheme=https;package=com.android.chrome;" +
+      "S.browser_fallback_url=" + encodeURIComponent(currentUrl) + ";end";
+
+    // Show the fallback if Chrome cannot be opened from the Instagram webview.
+    var fallbackTimer = window.setTimeout(showFallbackBanner, 900);
+    window.location.href = intentUrl;
+
+    // If the app switch is blocked and the page remains active, retain the fallback.
+    document.addEventListener("visibilitychange", function () {
+      if (document.visibilityState === "hidden") {
+        window.clearTimeout(fallbackTimer);
+      }
+    });
+  } else {
+    showFallbackBanner();
+  }
+})();
+
 </script>
 </body></html>
