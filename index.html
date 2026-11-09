@@ -1225,6 +1225,66 @@ body{
   .mark-halo{width:34px!important;height:34px!important}
 }
 
+
+/* Final responsive centring: success card stays centred on phones, tablets and desktops. */
+html, body {
+  width: 100%;
+  min-width: 0;
+  min-height: 100%;
+  margin: 0;
+}
+body {
+  min-height: 100svh;
+  min-height: 100dvh;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: center;
+  padding:
+    max(16px, env(safe-area-inset-top))
+    max(12px, env(safe-area-inset-right))
+    max(16px, env(safe-area-inset-bottom))
+    max(12px, env(safe-area-inset-left));
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+.shell {
+  width: min(100%, 620px);
+  max-width: 100%;
+  flex: 0 1 auto;
+  margin: auto;
+  padding: 0;
+  min-width: 0;
+}
+.card {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  padding: clamp(18px, 4vw, 38px);
+  border-radius: clamp(20px, 3vw, 28px);
+}
+img, svg { max-width: 100%; }
+@media (max-width: 480px) {
+  body {
+    padding:
+      max(12px, env(safe-area-inset-top))
+      max(12px, env(safe-area-inset-right))
+      max(12px, env(safe-area-inset-bottom))
+      max(12px, env(safe-area-inset-left));
+  }
+  .shell { width: 100%; }
+  .card { padding: clamp(18px, 5vw, 25px); }
+}
+@media (max-height: 680px) {
+  body { justify-content: flex-start; }
+  .shell { margin: auto; }
+  .mark-wrap { height: clamp(68px, 14vh, 100px); }
+  .mark-halo { width: clamp(64px, 13vh, 90px); height: clamp(64px, 13vh, 90px); }
+  .mark { width: clamp(48px, 10vh, 66px); height: clamp(48px, 10vh, 66px); }
+  .intro { margin-top: 8px; margin-bottom: 12px; }
+}
+
 &lt;/style&gt;
 &lt;/head&gt;
 &lt;body data-style=&quot;contours&quot;&gt;
@@ -1297,7 +1357,7 @@ body{
   &lt;/footer&gt;
 &lt;/body&gt;
 &lt;/html&gt;
-" loading="eager"></iframe>
+&quot; loading=&quot;eager"></iframe>
 </section>
 
 
