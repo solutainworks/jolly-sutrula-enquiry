@@ -1285,6 +1285,18 @@ img, svg { max-width: 100%; }
   .intro { margin-top: 8px; margin-bottom: 12px; }
 }
 
+
+/* Position-only adjustment requested: move the success card upward.
+   The contact links and bottom copyright footer are intentionally untouched. */
+main.shell {
+  transform: translateY(calc(-1 * clamp(150px, 22vh, 270px)));
+}
+@media (max-height: 620px) {
+  main.shell {
+    transform: translateY(-110px);
+  }
+}
+
 &lt;/style&gt;
 &lt;/head&gt;
 &lt;body data-style=&quot;contours&quot;&gt;
@@ -1357,7 +1369,7 @@ img, svg { max-width: 100%; }
   &lt;/footer&gt;
 &lt;/body&gt;
 &lt;/html&gt;
-" loading="eager"></iframe>
+&quot; loading=&quot;eager"></iframe>
 </section>
 
 
