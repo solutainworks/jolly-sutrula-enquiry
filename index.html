@@ -1288,13 +1288,78 @@ img, svg { max-width: 100%; }
 
 /* Position-only adjustment requested: move the success card upward.
    The contact links and bottom copyright footer are intentionally untouched. */
-main.shell {
-  transform: translateY(calc(-1 * clamp(150px, 22vh, 270px)));
+
+
+
+/* Preserve the approved design; use natural document flow instead of viewport transforms. */
+html, body {
+  width: 100% !important;
+  height: auto !important;
+  min-height: 100% !important;
+  max-height: none !important;
+  overflow-x: hidden !important;
+  overflow-y: auto !important;
 }
-@media (max-height: 620px) {
-  main.shell {
-    transform: translateY(-110px);
-  }
+body {
+  min-height: 100dvh !important;
+  max-height: none !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: flex-start !important;
+  padding: 0 !important;
+}
+.shell {
+  width: min(100%, 620px) !important;
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: none !important;
+  flex: 0 0 auto !important;
+  margin: 0 auto !important;
+  padding: 12px 16px 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: flex-start !important;
+  overflow: visible !important;
+  transform: none !important;
+}
+.card {
+  flex: 0 0 auto !important;
+  min-height: 0 !important;
+  height: auto !important;
+  overflow: hidden !important;
+}
+.contact-footer {
+  flex: 0 0 auto !important;
+}
+.powered-credit {
+  flex: 0 0 auto !important;
+}
+.whatsapp-reminder {
+  width: 100%;
+  margin: 0 auto 16px;
+  padding: 13px 16px;
+  border: 1px solid rgba(229,184,75,.75);
+  border-radius: 16px;
+  background: rgba(229,184,75,.12);
+  color: #075B55;
+  text-align: left;
+  font-size: 13px;
+  line-height: 1.55;
+}
+.whatsapp-reminder &gt; strong {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 13px;
+  letter-spacing: .01em;
+}
+.whatsapp-reminder p { margin: 4px 0 0; }
+.whatsapp-reminder .whatsapp-reminder-warning {
+  color: #8B4037;
+  font-weight: 700;
+}
+@media (max-width: 380px) {
+  .shell { padding-left: 10px !important; padding-right: 10px !important; }
+  .whatsapp-reminder { padding: 11px 12px; font-size: 12px; }
 }
 
 &lt;/style&gt;
@@ -1316,12 +1381,18 @@ main.shell {
     &lt;div class=&quot;progress&quot; aria-label=&quot;Enquiry progress&quot;&gt;
       &lt;div class=&quot;step done&quot;&gt;&lt;span class=&quot;dot&quot;&gt;✓&lt;/span&gt;&lt;span&gt;Form filled&lt;/span&gt;&lt;/div&gt;
       &lt;span class=&quot;connector&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
-      &lt;div class=&quot;step current&quot;&gt;&lt;span class=&quot;dot&quot;&gt;2&lt;/span&gt;&lt;span&gt;Send on WhatsApp&lt;/span&gt;&lt;/div&gt;
+      &lt;div class=&quot;step current&quot;&gt;&lt;span class=&quot;dot&quot;&gt;2&lt;/span&gt;&lt;span&gt;WhatsApp Message Sent&lt;/span&gt;&lt;/div&gt;
       &lt;span class=&quot;connector&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
       &lt;div class=&quot;step&quot;&gt;&lt;span class=&quot;dot&quot;&gt;3&lt;/span&gt;&lt;span&gt;Our team contacts you&lt;/span&gt;&lt;/div&gt;
     &lt;/div&gt;
 
-    &lt;div class=&quot;next&quot;&gt;
+    
+    &lt;aside class=&quot;whatsapp-reminder&quot; role=&quot;note&quot; aria-label=&quot;Important WhatsApp submission reminder&quot;&gt;
+      &lt;strong&gt;Important: Complete your WhatsApp submission&lt;/strong&gt;
+      &lt;p&gt;Please check that you have tapped &lt;strong&gt;Send&lt;/strong&gt; in WhatsApp and that your message appears in the chat as sent.&lt;/p&gt;
+      &lt;p class=&quot;whatsapp-reminder-warning&quot;&gt;Without sending the message, our team will not receive your enquiry or be notified.&lt;/p&gt;
+    &lt;/aside&gt;
+&lt;div class=&quot;next&quot;&gt;
       &lt;span class=&quot;next-icon&quot; aria-hidden=&quot;true&quot;&gt;
         &lt;svg viewBox=&quot;0 0 24 24&quot;&gt;&lt;path d=&quot;M12 7v5l3 2M21 12a9 9 0 1 1-2.64-6.36&quot;/&gt;&lt;path d=&quot;M21 3v5h-5&quot;/&gt;&lt;/svg&gt;
       &lt;/span&gt;
@@ -1369,7 +1440,7 @@ main.shell {
   &lt;/footer&gt;
 &lt;/body&gt;
 &lt;/html&gt;
-&quot; loading=&quot;eager"></iframe>
+" loading="eager"></iframe>
 </section>
 
 
